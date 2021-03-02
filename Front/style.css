@@ -1,0 +1,36 @@
+header .logo > img {
+  width: 300px;
+}
+header .form-inline {
+  width: 50%;
+}
+header .form-inline .form-control {
+  width: 75%;
+}
+
+main .carousel-inner {
+  height: 600px;
+}
+main .itemsContainer {
+  justify-content: center;
+}
+main .itemsContainer .ItemCardImageContent {
+  height: 500px;
+}
+main .itemsContainer .ItemCardImageContent img {
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .itemsContainer .itemCard {
+  border: 5px outset rgba(183, 100, 250, 0.94);
+  border-radius: 0px 13px 0px 13px;
+  box-shadow: 10px 14px 19px 8px rgba(0, 0, 0, 0.51);
+  text-align: center;
+  margin: 2rem;
+}
+
+.footerContent > ul {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */
