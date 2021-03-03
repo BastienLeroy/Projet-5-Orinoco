@@ -13,11 +13,16 @@ header {
 
 main {
     .carousel-inner {
-        height: 600px;
+        max-height: 500px;
 
         .carousel-item {
-
-        }
+            
+            .d-block{
+                max-height: 750px !important;
+                background-position: center;
+                background-size: cover;
+            }
+        } 
     }
     
     .itemsContainer {
@@ -47,3 +52,10 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
+/*#######page detailProduct######*/
+
+
+    .image{
+        height: 400px;
+    }

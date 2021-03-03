@@ -1,9 +1,13 @@
-let app = {
+//Méthodes contenu dans un objet, initialiser une fois le DOM construit.
+let app = {  
 
-    init: function() {
+    /* Fonction permettant */
+    init: function() { 
+        console.log("app.js : OK !"); 
         app.requestProductList();
     },
-
+    
+    //requete format dur (type cours openclassroom), appel de la requete pour récuperer les données du serveur
     requestProductList: function() {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
@@ -27,25 +31,12 @@ let app = {
         request.open("GET", "http://localhost:3000/api/cameras"); //ligne pour cibler la requete
         request.send();
     },
-
+    // Function permettant de créé des div ou éléments en dynamique
     createItems: function(id ,image, text) {
         const itemsCard = document.querySelector(".itemsContainer");
         const newItemsCard = document.createElement("div");
         newItemsCard.classList.add("itemCard");
-        newItemsCard.dataset.id = id;
-
-        //newItemsCard.innerHTML = 
-        /*`<div class="itemCard" style="width: 18rem;">
-            <div class="ItemCardImage">
-                <img class="ItemCardImageContent-top" src="..." alt="Card image cap">
-            </div>
-            <div class="ItemCardContent">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>`*/ 
-
+        
         const newItemsCardContent = document.createElement("div");
         newItemsCardContent.classList.add("ItemCardContent");
     
@@ -60,7 +51,7 @@ let app = {
         insertImage.classList.add("ItemCardImageContent");
 
         const linkButton = document.createElement("a");
-        linkButton.href = "./produit.html";
+        linkButton.href = "./produit.html?id="+id;
     
         const button = document.createElement("button");
         button.classList.add("itemCardButton");

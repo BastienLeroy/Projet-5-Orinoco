@@ -9,7 +9,12 @@ header .form-inline .form-control {
 }
 
 main .carousel-inner {
-  height: 600px;
+  max-height: 500px;
+}
+main .carousel-inner .carousel-item .d-block {
+  max-height: 750px !important;
+  background-position: center;
+  background-size: cover;
 }
 main .itemsContainer {
   justify-content: center;
@@ -33,4 +38,9 @@ main .itemsContainer .itemCard {
 .footerContent > ul {
   display: flex;
   justify-content: space-between;
+}
+
+/*#######page detailProduct######*/
+.image {
+  height: 400px;
 }/*# sourceMappingURL=style.css.map */
