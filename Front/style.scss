@@ -1,4 +1,14 @@
+
+body {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header {
+    .headerContent {
+        justify-content: space-between;
+    }
     .logo > img {
         width: 300px;
     }
@@ -7,6 +17,20 @@ header {
         .form-control {
             width: 75%;
         }
+    }
+    .bi-cart-fill{
+        height: 50px;
+        width: 50px;
+        font-size: 2rem;
+        background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+        background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+        background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+        border-radius: 50px;
+        text-align: center;
+        color: white;
+        align-self: center;
+        margin-right: 1rem;
+              
     }
 }
 
@@ -26,36 +50,93 @@ main {
     }
     
     .itemsContainer {
+        display: flex;
+        flex-direction: row;
         justify-content: center;
 
-        .ItemCardImageContent {
-            height: 500px;
-
-            img{
-                height: 500px;
-                object-fit: cover;
-            }
-        }
         .itemCard {
-            border: 5px outset rgba(183,100,250,0.94);
+            width: 45%;
+            display: flex;
+            border: 2px outset rgba(183,100,250,0.94);
             border-radius: 0px 13px 0px 13px;
             -webkit-box-shadow: 10px 14px 19px 8px rgba(0,0,0,0.51); 
             box-shadow: 10px 14px 19px 8px rgba(0,0,0,0.51);
             text-align: center;
             margin: 2rem;
+
+            .ItemCardImageContent {
+                height: 250px;
+                width: 380px;
+                border-radius: 0 0 0 10px ;
+    
+                img{
+                    height: 500px;
+                    object-fit: cover;
+                    
+                }
+            }
+            .ItemCardContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .itemCardButton {
+                    color: white;
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 10px;
+                    background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+                    background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+                    background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+                }
+            }
+            
+            
         }
+              
     }
 }
 
-
+.footerContent {
+    width: 100%;
+    background: rgb(194, 194, 194);
+}
 .footerContent > ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 /*#######page detailProduct######*/
 
 
-    .image{
-        height: 400px;
+.productCard{
+    display: flex;
+    padding: 2rem 1rem 4rem 1rem ;
+
+    .productCardContent {
+        padding-left: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .option {
+            width: 150px;
+            align-self: center;
+        }
+        .price {
+            align-self: center;
+        }
+        .btn-primary {
+            height: fit-content;
+            align-self: flex-end;
+            bottom: 30px;
+            right: 300px;
+            margin-right: 1rem;
+        }
     }
+    
+}
+
+
+.image{
+    height: 400px;
+}

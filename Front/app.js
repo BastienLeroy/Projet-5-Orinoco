@@ -20,7 +20,8 @@ let app = {
                     for(let counter = 0; counter < response.length; counter++) {
                         console.log(response[counter].description);
                         console.log(response[counter].imageUrl);
-                        app.createItems(response[counter]._id, response[counter].imageUrl, response[counter].description);
+                        console.log(response[counter].name);
+                        app.createItems(response[counter]._id, response[counter].imageUrl, response[counter].description, response[counter].name);
                     }
                 } 
                 catch (error) {
@@ -28,7 +29,7 @@ let app = {
                 }
             }
         };
-        request.open("GET", "http://localhost:3000/api/cameras"); //ligne pour cibler la requete
+        request.open("GET", "http://localhost:3000/api/cameras"); //cible la requete
         request.send();
     },
     // Function permettant de créé des div ou éléments en dynamique
@@ -39,8 +40,8 @@ let app = {
         
         const newItemsCardContent = document.createElement("div");
         newItemsCardContent.classList.add("ItemCardContent");
-    
-        const insertText = document.createElement("p");
+      
+        const insertText = document.createElement("h5");
         insertText.textContent = text;
         
         const newItemsCardImage = document.createElement("div");
@@ -49,21 +50,24 @@ let app = {
         const insertImage = document.createElement("img");
         insertImage.src = image;
         insertImage.classList.add("ItemCardImageContent");
-
+               
         const linkButton = document.createElement("a");
         linkButton.href = "./produit.html?id="+id;
     
         const button = document.createElement("button");
         button.classList.add("itemCardButton");
         button.addEventListener("click", productDetail.onClickButtonCardList);
+        button.textContent = ("Voir Détail");
         
-        newItemsCardImage.appendChild(insertImage);
+        newItemsCardImage.appendChild(insertImage); //cible l'endroit de la création de l'enfant
         newItemsCard.appendChild(newItemsCardImage);
         newItemsCardContent.appendChild(insertText);
         newItemsCard.appendChild(newItemsCardContent);
         linkButton.appendChild(button);
-        newItemsCard.appendChild(linkButton);
+        newItemsCardContent.appendChild(linkButton);
         itemsCard.appendChild(newItemsCard);
+        
+
     }
 };
 

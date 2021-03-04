@@ -12,19 +12,19 @@ let productDetail = {
         productDetail.fetchData(productId);
     },
 
-    fetchData: function(id) {
+    fetchData: function(id) { //Selection de chaque div qui sera rempli par la suite
         const detailProductImage = document.querySelector(".image");
         const detailProductTitle = document.querySelector(".title");
         const detailProductDescription = document.querySelector(".description");
         const detailProductPrice = document.querySelector(".price");
         const detailProductOptions = document.querySelector(".option");
 
-        fetch('http://localhost:3000/api/cameras/'+id)
+        fetch('http://localhost:3000/api/cameras/'+id) // appel du array par fetch
             .then(res => {
                 return res.json();
             })
             .then(response => {
-                console.log("productDetailTest.js fetch response", response);
+                console.log("productDetail.js fetch response", response);
 
                 // Ajout des options dans le <select> 
                 const optionsList = response.lenses;
@@ -36,11 +36,11 @@ let productDetail = {
 
                 }
                 //permet de "remplir" les querySelectors (suite à la fonction fetchData)
-                console.log(detailProductPrice);
+                console.log("detailProductPrice :", detailProductTitle);
                 detailProductImage.src=response.imageUrl;
                 detailProductTitle.textContent=response.name;
                 detailProductDescription.textContent=response.description;
-                detailProductPrice.textContent=response.price;
+                detailProductPrice.textContent=response.price + " $ Tibetain";
 
 
                 
