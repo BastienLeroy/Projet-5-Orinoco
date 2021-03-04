@@ -53,6 +53,7 @@ main {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        
 
         .itemCard {
             width: 45%;
@@ -79,6 +80,7 @@ main {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
+                width: inherit;
 
                 .itemCardButton {
                     color: white;

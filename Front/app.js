@@ -21,7 +21,7 @@ let app = {
                         console.log(response[counter].description);
                         console.log(response[counter].imageUrl);
                         console.log(response[counter].name);
-                        app.createItems(response[counter]._id, response[counter].imageUrl, response[counter].description, response[counter].name);
+                        app.createItems(response[counter]._id, response[counter].imageUrl, response[counter].name, response[counter].description);
                     }
                 } 
                 catch (error) {
@@ -41,8 +41,10 @@ let app = {
         const newItemsCardContent = document.createElement("div");
         newItemsCardContent.classList.add("ItemCardContent");
       
-        const insertText = document.createElement("h5");
+        const insertText = document.createElement("h2");
+        const insertText2 = document.createElement("h5");
         insertText.textContent = text;
+        insertText2.textContent = text;
         
         const newItemsCardImage = document.createElement("div");
         newItemsCardImage.classList.add("ItemCardImage");
