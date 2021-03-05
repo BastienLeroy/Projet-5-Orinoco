@@ -18,20 +18,29 @@ header {
             width: 75%;
         }
     }
-    .bi-cart-fill{
-        height: 50px;
-        width: 50px;
-        font-size: 2rem;
-        background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        border-radius: 50px;
-        text-align: center;
-        color: white;
-        align-self: center;
-        margin-right: 1rem;
-              
+    .linkCaddie{
+        display: flex;
+        align-items: center;
+        p{ 
+            margin-right: 0.5rem;
+            margin-top: 1rem;
+        }
+        .bi-cart-fill{
+            height: 50px;
+            width: 50px;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            border-radius: 50px;
+            text-align: center;
+            color: white;
+            align-self: center;
+            margin-right: 1rem;
+                  
+        }
     }
+    
 }
 
 

@@ -1,4 +1,15 @@
-let caddies = {
+let caddie = {
+    
+    init: function(){
+        console.log("caddie.js : OK !");
+        caddie.setCounterCartDisplay();
+    },
+
+    setCounterCartDisplay: function(){
+        const counterCart = document.querySelector(".counterCaddie");
+        const cartCounter = localStorage.length;
+        counterCart.textContent = cartCounter;
+    },
     
 //partie "back"
     //ajoute au caddie les article selectionné
@@ -9,5 +20,6 @@ let caddies = {
     //selection de chaque input du form avec querySelector
 
     //utiliser local storage pour"enregistrer les données utilisateur avec windows.sessionStorage 
-}
-document.addEventListener('DOMContentLoaded', caddies.init);
+};
+
+document.addEventListener('DOMContentLoaded', caddie.init);

@@ -1,7 +1,8 @@
 let productDetail = {
 
     init: function(){
-        productDetail.getProductId()
+        console.log("productDetail.js : OK !");
+        productDetail.getProductId();
     },
 
     getProductId: function() {
@@ -41,11 +42,22 @@ let productDetail = {
                 detailProductTitle.textContent=response.name;
                 detailProductDescription.textContent=response.description;
                 detailProductPrice.textContent=response.price + " $ Tibetain";
-
-
-                
-
+               
             })
+
+        //Si je "click" sur button "ajouter au panier" viens modifier le texte(votre panier par nombre d'article commander), et l'article est ajouter dans la page "caddie"
+        var addCounterCart = document.querySelector(".addToCaddie");
+        
+        addCounterCart.addEventListener("click", function addToCart(e) {
+            productDetail.setDataLocalStorage(id, detailProductOptions.value);
+            caddie.setCounterCartDisplay();
+        });
+    },
+
+    setDataLocalStorage: function(id, productOption) {
+        localStorage.setItem(`${id}`, `${productOption}`);
+
+        console.log(localStorage);
     }
 };
 

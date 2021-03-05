@@ -58,7 +58,6 @@ let app = {
     
         const button = document.createElement("button");
         button.classList.add("itemCardButton");
-        button.addEventListener("click", productDetail.onClickButtonCardList);
         button.textContent = ("Voir Détail");
         
         newItemsCardImage.appendChild(insertImage); //cible l'endroit de la création de l'enfant
@@ -68,8 +67,6 @@ let app = {
         linkButton.appendChild(button);
         newItemsCardContent.appendChild(linkButton);
         itemsCard.appendChild(newItemsCard);
-        
-
     }
 };
 

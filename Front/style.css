@@ -16,7 +16,15 @@ header .form-inline {
 header .form-inline .form-control {
   width: 75%;
 }
-header .bi-cart-fill {
+header .linkCaddie {
+  display: flex;
+  align-items: center;
+}
+header .linkCaddie p {
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+}
+header .linkCaddie .bi-cart-fill {
   height: 50px;
   width: 50px;
   font-size: 2rem;
