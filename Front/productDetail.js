@@ -50,7 +50,7 @@ let productDetail = {
         
         addCounterCart.addEventListener("click", function addToCart(e) {
             productDetail.setDataLocalStorage(id, detailProductOptions.value);
-            caddie.setCounterCartDisplay();
+            counterCartDisplay.setCounterCartDisplay();
         });
     },
 

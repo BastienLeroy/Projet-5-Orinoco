@@ -2,24 +2,37 @@ let caddie = {
     
     init: function(){
         console.log("caddie.js : OK !");
-        caddie.setCounterCartDisplay();
+        caddie.showCaddieProduct();
+        
     },
+ 
+    showCaddieProduct : function(){
+        console.log("show ");
+        console.log(localStorage);
+        //faire querySelector du noeud (container)
+        for (const [id, option] of Object.entries(localStorage)){
+            console.log("id :", id);
+            console.log("option :", option);
 
-    setCounterCartDisplay: function(){
-        const counterCart = document.querySelector(".counterCaddie");
-        const cartCounter = localStorage.length;
-        counterCart.textContent = cartCounter;
-    },
-    
-//partie "back"
-    //ajoute au caddie les article selectionné
 
-    //faire total des article avec une fonction qui deffinira le "price" de l'"id " et ajoutera si plusieurs
 
-//partie client
-    //selection de chaque input du form avec querySelector
+            //recuperer donnée corespondant à l'id via appel ajax (fetch)
+            fetch('http://localhost:3000/api/cameras/'+id) 
+            .then(res => {
+                return res.json();
+            })
+            .then(response => {
+                console.log(response);
+                //créé dynamiquement affichage du produit (createElement)
+                
+                //inserer les données du produit dans les balises corespondantes ( appendChild)
+            })
 
-    //utiliser local storage pour"enregistrer les données utilisateur avec windows.sessionStorage 
+        }
+
+    }
+    //RECUPERER données sur localStorage et les affichés
+
 };
 
 document.addEventListener('DOMContentLoaded', caddie.init);

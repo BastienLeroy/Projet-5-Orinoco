@@ -124,4 +124,10 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 
 .image {
   height: 400px;
+}
+
+/*#######page caddie######*/
+.btnBuy {
+  margin-bottom: 1rem;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
