@@ -48,7 +48,7 @@ main .carousel-inner .carousel-item .d-block {
 main .itemsContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 }
 main .itemsContainer .itemCard {
   width: 45%;
@@ -149,8 +149,10 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 }
 .caddieCard .caddieCardContent > h3 {
   width: 20%;
+  margin-left: 2rem;
 }
 .caddieCard .caddieCardContent > h5 {
+  margin-left: 2rem;
   width: 25%;
 }
 .caddieCard .caddieCardImage {
@@ -158,4 +160,5 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 }
 .caddieCard .caddieCardImage .caddieCardImageContent {
   height: 200px;
+  width: 300px;
 }/*# sourceMappingURL=style.css.map */

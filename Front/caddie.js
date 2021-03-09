@@ -24,14 +24,14 @@ let caddie = {
                 return res.json();
             })
             .then(response => {
-                console.log(response);
-
+                const price = response.price.toString(10);// Permet de modifier le number en string
+                console.log(typeof price);
                 const argumentCaddieItems = {
                     name : response.name,
                     description : response.description,
                     urlImage : response.imageUrl,
-                    option : response.lenses,
-                    price : response.price
+                    option : option,
+                    price : price.slice(0,(price.length-2))// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
 
                 }
                 caddie.createItemCaddie(argumentCaddieItems);
@@ -41,6 +41,7 @@ let caddie = {
     },
 
     createItemCaddie: function({name, description, urlImage, option, price}) {
+        // Appellation dynamique pour les contenant qui récupère les données de "response"
         const cardCaddie = document.querySelector(".caddieContainerListItems");
 
         const newCardCaddie = document.createElement("div");
@@ -59,7 +60,7 @@ let caddie = {
         insertOption.textContent = option;
 
         const insertPrice = document.createElement("caddieCardContentPrice");
-        insertPrice.textContent = price;
+        insertPrice.textContent = price +"€";
 
         const newcaddieCardImage = document.createElement("div");
         newcaddieCardImage.classList.add("caddieCardImage");
@@ -68,7 +69,7 @@ let caddie = {
         insertImage.src = urlImage;
         insertImage.classList.add("caddieCardImageContent");
 
-        /* Container avec balise img */
+        // Création dynamique des contenant qui récupère les données de "response"
         newcaddieCardImage.appendChild(insertImage);
 
         /* Container qui contient la balise h4 et la div ".caddieCardImage" (contenant la balise img ".caddieCardImageContent") */
@@ -77,7 +78,6 @@ let caddie = {
         newcaddieCardContent.appendChild(insertOption);
         newcaddieCardContent.appendChild(insertPrice);
         
-
         /* Contient l'ensemble des données d'un produit du panier */
         newCardCaddie.appendChild(newcaddieCardContent);
         newCardCaddie.appendChild(newcaddieCardImage);

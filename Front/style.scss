@@ -61,7 +61,7 @@ main {
     .itemsContainer {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         
 
         .itemCard {
@@ -175,8 +175,10 @@ main {
         
         & > h3 {
             width: 20%;
+            margin-left: 2rem;
         }
         & > h5 {
+            margin-left: 2rem;
             width: 25%;
         }
     }
@@ -186,6 +188,7 @@ main {
 
         .caddieCardImageContent {
             height: 200px;
+            width: 300px;
             
         }
     
