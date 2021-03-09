@@ -21,7 +21,15 @@ let app = {
                         console.log(response[counter].description);
                         console.log(response[counter].imageUrl);
                         console.log(response[counter].name);
-                        app.createItems(response[counter]._id, response[counter].imageUrl, response[counter].name, response[counter].description);
+
+                        const argumentCreateItems = {
+                            id: response[counter]._id,
+                            urlImg: response[counter].imageUrl,
+                            title: response[counter].name,
+                            price: response[counter].price
+                        }
+
+                        app.createItems(argumentCreateItems);
                     }
                 } 
                 catch (error) {
@@ -32,8 +40,9 @@ let app = {
         request.open("GET", "http://localhost:3000/api/cameras"); //cible la requete
         request.send();
     },
+
     // Function permettant de créé des div ou éléments en dynamique
-    createItems: function(id ,image, text) {
+    createItems: function({ id, urlImg, title, price }) {
         const itemsCard = document.querySelector(".itemsContainer");
         const newItemsCard = document.createElement("div");
         newItemsCard.classList.add("itemCard");
@@ -43,14 +52,14 @@ let app = {
       
         const insertText = document.createElement("h2");
         const insertText2 = document.createElement("h5");
-        insertText.textContent = text;
-        insertText2.textContent = text;
+        insertText.textContent = title;
+        insertText2.textContent = price;
         
         const newItemsCardImage = document.createElement("div");
         newItemsCardImage.classList.add("ItemCardImage");
         
         const insertImage = document.createElement("img");
-        insertImage.src = image;
+        insertImage.src = urlImg;
         insertImage.classList.add("ItemCardImageContent");
                
         const linkButton = document.createElement("a");
@@ -63,6 +72,7 @@ let app = {
         newItemsCardImage.appendChild(insertImage); //cible l'endroit de la création de l'enfant
         newItemsCard.appendChild(newItemsCardImage);
         newItemsCardContent.appendChild(insertText);
+        newItemsCardContent.appendChild(insertText2);
         newItemsCard.appendChild(newItemsCardContent);
         linkButton.appendChild(button);
         newItemsCardContent.appendChild(linkButton);

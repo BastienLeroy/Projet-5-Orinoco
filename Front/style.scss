@@ -157,3 +157,37 @@ main {
     margin-bottom: 1rem;
     text-align: center;
 }
+.caddieCard {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    .caddieCardContent {
+        display: flex;        
+        
+        .option {
+            width: 20%;
+        }
+        .caddieCardContentPrice {
+            width: 35%;
+            align-self: flex-end;
+        }
+        
+        & > h3 {
+            width: 20%;
+        }
+        & > h5 {
+            width: 25%;
+        }
+    }
+
+    .caddieCardImage {
+        height: 250px;
+
+        .caddieCardImageContent {
+            height: 200px;
+            
+        }
+    
+    }
+}

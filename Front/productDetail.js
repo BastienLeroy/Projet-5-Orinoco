@@ -36,6 +36,7 @@ let productDetail = {
                     detailProductOptions.appendChild(optionItem);
 
                 }
+                
                 //permet de "remplir" les querySelectors (suite à la fonction fetchData)
                 console.log("detailProductPrice :", detailProductTitle);
                 detailProductImage.src=response.imageUrl;
@@ -43,7 +44,7 @@ let productDetail = {
                 detailProductDescription.textContent=response.description;
                 detailProductPrice.textContent=response.price + " $ Tibetain";
                
-            })
+            });
 
         //Si je "click" sur button "ajouter au panier" viens modifier le texte(votre panier par nombre d'article commander), et l'article est ajouter dans la page "caddie"
         var addCounterCart = document.querySelector(".addToCaddie");
@@ -56,8 +57,13 @@ let productDetail = {
 
     setDataLocalStorage: function(id, productOption) {
         localStorage.setItem(`${id}`, `${productOption}`);
-
-        console.log(localStorage);
+        /*
+        const localStorageValue = {
+            id: id,
+            productOption: productOption 
+        };
+        localStorage.setItem("panierContent", JSON.stringify(localStorageValue));
+        */
     }
 };
 

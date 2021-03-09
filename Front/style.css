@@ -130,4 +130,32 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 .btnBuy {
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.caddieCard {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.caddieCard .caddieCardContent {
+  display: flex;
+}
+.caddieCard .caddieCardContent .option {
+  width: 20%;
+}
+.caddieCard .caddieCardContent .caddieCardContentPrice {
+  width: 35%;
+  align-self: flex-end;
+}
+.caddieCard .caddieCardContent > h3 {
+  width: 20%;
+}
+.caddieCard .caddieCardContent > h5 {
+  width: 25%;
+}
+.caddieCard .caddieCardImage {
+  height: 250px;
+}
+.caddieCard .caddieCardImage .caddieCardImageContent {
+  height: 200px;
 }/*# sourceMappingURL=style.css.map */
