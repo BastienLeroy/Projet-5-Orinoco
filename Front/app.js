@@ -18,15 +18,12 @@ let app = {
                     console.log("response :", response);
 
                     for(let counter = 0; counter < response.length; counter++) {
-                        console.log(response[counter].description);
-                        console.log(response[counter].imageUrl);
-                        console.log(response[counter].name);
-
+                        const price = response[counter].price.toString(10);
                         const argumentCreateItems = {
                             id: response[counter]._id,
                             urlImg: response[counter].imageUrl,
                             title: response[counter].name,
-                            price: response[counter].price
+                            price: price.slice(0,(price.length-2))
                         }
 
                         app.createItems(argumentCreateItems);
@@ -53,7 +50,7 @@ let app = {
         const insertText = document.createElement("h2");
         const insertText2 = document.createElement("h5");
         insertText.textContent = title;
-        insertText2.textContent = price;
+        insertText2.textContent = price + "€";
         
         const newItemsCardImage = document.createElement("div");
         newItemsCardImage.classList.add("ItemCardImage");

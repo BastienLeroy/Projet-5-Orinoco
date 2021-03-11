@@ -19,6 +19,8 @@ let productDetail = {
         const detailProductDescription = document.querySelector(".description");
         const detailProductPrice = document.querySelector(".price");
         const detailProductOptions = document.querySelector(".option");
+        const detailProductQuantity = document.querySelector(".qty");
+        
 
         fetch('http://localhost:3000/api/cameras/'+id) // appel du array par fetch
             .then(res => {
@@ -26,7 +28,10 @@ let productDetail = {
             })
             .then(response => {
                 console.log("productDetail.js fetch response", response);
-
+                const price = response.price.toString(10);
+                const priceString = price.slice(0,(price.length-2));
+                
+                
                 // Ajout des options dans le <select> 
                 const optionsList = response.lenses;
                 for(let count = 0; count < optionsList.length; count++) {
@@ -42,7 +47,7 @@ let productDetail = {
                 detailProductImage.src=response.imageUrl;
                 detailProductTitle.textContent=response.name;
                 detailProductDescription.textContent=response.description;
-                detailProductPrice.textContent=response.price + " $ Tibetain";
+                detailProductPrice.textContent=priceString + "€";
                
             });
 
@@ -50,20 +55,19 @@ let productDetail = {
         var addCounterCart = document.querySelector(".addToCaddie");
         
         addCounterCart.addEventListener("click", function addToCart(e) {
-            productDetail.setDataLocalStorage(id, detailProductOptions.value);
+            productDetail.setDataLocalStorage(id, detailProductOptions.value, detailProductQuantity.value);
             counterCartDisplay.setCounterCartDisplay();
         });
     },
 
-    setDataLocalStorage: function(id, productOption) {
-        localStorage.setItem(`${id}`, `${productOption}`);
-        /*
+    setDataLocalStorage: function(id, productOption, qty) {
+        /*localStorage.setItem(`${id}`, `${productOption}`);*/
+        
         const localStorageValue = {
-            id: id,
-            productOption: productOption 
+            productOption: productOption,
+            quantity : qty
         };
-        localStorage.setItem("panierContent", JSON.stringify(localStorageValue));
-        */
+        localStorage.setItem(id, JSON.stringify(localStorageValue));
     }
 };
 

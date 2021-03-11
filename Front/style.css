@@ -30,6 +30,7 @@ header .linkCaddie .bi-cart-fill {
   font-size: 2rem;
   background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
   background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+  opacity: 0.7;
   border-radius: 50px;
   text-align: center;
   color: white;
@@ -111,8 +112,12 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 }
 .productCard .productCardContent .price {
   align-self: center;
+  font-size: 2rem;
+  color: #444444;
+  background: #FFFFFF;
+  text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
-.productCard .productCardContent .btn-primary {
+.productCard .productCardContent .btn-primary, .productCard .productCardContent .btn-success {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -120,6 +125,7 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
   bottom: 30px;
   right: 300px;
   margin-right: 1rem;
+  width: 150px;
 }
 
 .image {
@@ -132,33 +138,45 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
   text-align: center;
 }
 
-.caddieCard {
+.caddieContainerList {
+  display: flex;
+}
+.caddieContainerList .caddieCard {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-.caddieCard .caddieCardContent {
+.caddieContainerList .caddieCard .caddieCardContent {
   display: flex;
 }
-.caddieCard .caddieCardContent .option {
+.caddieContainerList .caddieCard .caddieCardContent .option {
   width: 20%;
 }
-.caddieCard .caddieCardContent .caddieCardContentPrice {
+.caddieContainerList .caddieCard .caddieCardContent .caddieCardContentPrice {
   width: 35%;
   align-self: flex-end;
 }
-.caddieCard .caddieCardContent > h3 {
+.caddieContainerList .caddieCard .caddieCardContent > h3 {
   width: 20%;
   margin-left: 2rem;
 }
-.caddieCard .caddieCardContent > h5 {
+.caddieContainerList .caddieCard .caddieCardContent > h5 {
   margin-left: 2rem;
   width: 25%;
 }
-.caddieCard .caddieCardImage {
+.caddieContainerList .caddieCard .caddieCardImage {
   height: 250px;
 }
-.caddieCard .caddieCardImage .caddieCardImageContent {
+.caddieContainerList .caddieCard .caddieCardImage .caddieCardImageContent {
   height: 200px;
   width: 300px;
+}
+.caddieContainerList .caddieContainerListTotal {
+  border-radius: 10px;
+  align-self: flex-end;
+  width: 320px;
+  height: 150px;
+  opacity: 0.5;
+  background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+  background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
 }/*# sourceMappingURL=style.css.map */

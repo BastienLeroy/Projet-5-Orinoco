@@ -3,6 +3,7 @@ let caddie = {
     init: function(){
         console.log("caddie.js : OK !");
         caddie.showCaddieProduct();
+        
 
         /*
         const testLocalStorageValue = JSON.parse(localStorage.panierTest);
@@ -13,10 +14,17 @@ let caddie = {
     showCaddieProduct : function(){
         console.log("show");
         console.log("localStorage :", localStorage);
+        const caddiePrice = document.querySelector(".caddieContainerListTotal");
+        let totalPrice = 0;
         
-        for (const [id, option] of Object.entries(localStorage)){
+        for (const [id, options] of Object.entries(localStorage)){
             console.log("id :", id);
-            console.log("option :", option);
+            console.log("option :", options);
+
+            const optionsObject = JSON.parse(options);
+            console.log("optionsObject :", optionsObject);
+
+
             
             /* Recuperer donnée corespondant à l'id via appel ajax (fetch) */
             fetch(`http://localhost:3000/api/cameras/${id}`) 
@@ -25,22 +33,27 @@ let caddie = {
             })
             .then(response => {
                 const price = response.price.toString(10);// Permet de modifier le number en string
-                console.log(typeof price);
+                const priceFormat = price.slice(0,(price.length-2));// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
+
                 const argumentCaddieItems = {
                     name : response.name,
                     description : response.description,
                     urlImage : response.imageUrl,
-                    option : option,
-                    price : price.slice(0,(price.length-2))// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
+                    option : optionsObject.productOption,
+                    qty : optionsObject.quantity,
+                    price : priceFormat// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
 
                 }
                 caddie.createItemCaddie(argumentCaddieItems);
+                totalPrice += (priceFormat*optionsObject.quantity);
+                console.log(totalPrice);
+                caddiePrice.textContent = totalPrice +"€";
             })
         }
-
+        
     },
 
-    createItemCaddie: function({name, description, urlImage, option, price}) {
+    createItemCaddie: function({ name, description, urlImage, option, qty, price }) {
         // Appellation dynamique pour les contenant qui récupère les données de "response"
         const cardCaddie = document.querySelector(".caddieContainerListItems");
 
@@ -59,8 +72,11 @@ let caddie = {
         const insertOption = document.createElement("h5");
         insertOption.textContent = option;
 
+        const insertQuantity = document.createElement("h5");
+        insertQuantity.textContent = qty;
+
         const insertPrice = document.createElement("caddieCardContentPrice");
-        insertPrice.textContent = price +"€";
+        insertPrice.textContent = (price*qty) +"€";
 
         const newcaddieCardImage = document.createElement("div");
         newcaddieCardImage.classList.add("caddieCardImage");
@@ -76,6 +92,7 @@ let caddie = {
         newcaddieCardContent.appendChild(insertText);
         newcaddieCardContent.appendChild(insertDescription);
         newcaddieCardContent.appendChild(insertOption);
+        newcaddieCardContent.appendChild(insertQuantity);
         newcaddieCardContent.appendChild(insertPrice);
         
         /* Contient l'ensemble des données d'un produit du panier */
