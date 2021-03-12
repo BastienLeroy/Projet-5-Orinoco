@@ -3,6 +3,23 @@ let caddie = {
     init: function(){
         console.log("caddie.js : OK !");
         caddie.showCaddieProduct();
+
+        // Fonction du boutton vider le panier
+        const deleteItem = document.querySelector(".deleteItems");
+        deleteItem.addEventListener('click', function(){
+            localStorage.clear();
+            console.log("click");
+            
+            const caddieContainerList = document.querySelector(".caddieContainerListItems");
+            console.log(caddieContainerList.firstChild);
+
+            const caddieTotalPrice = document.querySelector(".caddieContainerPrice");
+            caddieTotalPrice.textContent = '0';
+
+            while (caddieContainerList.firstChild) {
+                caddieContainerList.removeChild(caddieContainerList.firstChild)
+            }
+        });
         
 
         /*
@@ -12,17 +29,19 @@ let caddie = {
     },
  
     showCaddieProduct : function(){
-        console.log("show");
-        console.log("localStorage :", localStorage);
-        const caddiePrice = document.querySelector(".caddieContainerListTotal");
+        //console.log("show");
+        //console.log("localStorage :", localStorage);
+        const caddiePrice = document.querySelector(".caddieContainerPrice");
         let totalPrice = 0;
         
+        
+        
         for (const [id, options] of Object.entries(localStorage)){
-            console.log("id :", id);
-            console.log("option :", options);
+            //console.log("id :", id);
+            //console.log("option :", options);
 
             const optionsObject = JSON.parse(options);
-            console.log("optionsObject :", optionsObject);
+            //console.log("optionsObject :", optionsObject);
 
 
             
@@ -46,12 +65,13 @@ let caddie = {
                 }
                 caddie.createItemCaddie(argumentCaddieItems);
                 totalPrice += (priceFormat*optionsObject.quantity);
-                console.log(totalPrice);
+                //console.log(totalPrice);
                 caddiePrice.textContent = totalPrice +"€";
             })
         }
         
     },
+    
 
     createItemCaddie: function({ name, description, urlImage, option, qty, price }) {
         // Appellation dynamique pour les contenant qui récupère les données de "response"
@@ -101,7 +121,8 @@ let caddie = {
 
         /* Insère l'item représentant un produit du panier dans le container qui contient tout les élements du panier */
         cardCaddie.appendChild(newCardCaddie);
-    }
+    },
+                    
 };
 
 document.addEventListener('DOMContentLoaded', caddie.init);

@@ -179,4 +179,8 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
   opacity: 0.5;
   background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
   background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+  text-align: center;
+  color: black;
+  font-size: x-large;
+  text-shadow: 3px 2px 3px white;
 }/*# sourceMappingURL=style.css.map */
