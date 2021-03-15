@@ -1,0 +1,30 @@
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column !important;
+  }
+  .headerContent .linkLogo {
+    display: flex;
+    justify-content: center;
+  }
+  .headerContent .form-inline {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .headerContent .linkCaddie {
+    align-self: center;
+  }
+
+  .itemCard {
+    width: 100% !important;
+    flex-direction: column;
+  }
+  .itemCard .ItemCardContent {
+    margin-bottom: 1rem;
+  }
+  .itemCard .ItemCardImage {
+    width: 50% !important;
+  }
+  .itemCard .ItemCardImage .ItemCardImageContent {
+    max-width: 375px;
+  }
+}/*# sourceMappingURL=styleSmall.css.map */

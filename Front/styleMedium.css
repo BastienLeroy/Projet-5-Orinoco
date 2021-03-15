@@ -1,0 +1,26 @@
+@media (min-width: 768px) and (max-width: 992px) {
+  .headerContent {
+    flex-direction: column !important;
+  }
+  .headerContent .linkLogo {
+    display: flex;
+    justify-content: center;
+  }
+  .headerContent .form-inline {
+    width: 100%;
+    margin-left: 3rem;
+  }
+  .headerContent .linkCaddie {
+    align-self: center;
+  }
+
+  .itemCard {
+    width: 100% !important;
+  }
+  .itemCard .ItemCardImage {
+    width: 50% !important;
+  }
+  .itemCard .ItemCardImage .ItemCardImageContent {
+    max-width: 375px;
+  }
+}/*# sourceMappingURL=styleMedium.css.map */

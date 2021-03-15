@@ -1,0 +1,23 @@
+@media (min-width: 992px) and (max-width: 1280px){ 
+    body {
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .itemCard {
+        width: 43% !important;
+
+        .ItemCardImage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            .ItemCardImageContent {
+                width: 100%;
+            }
+        }
+    }
+ }

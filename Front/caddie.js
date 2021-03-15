@@ -92,7 +92,7 @@ let caddie = {
         const insertOption = document.createElement("h5");
         insertOption.textContent = option;
 
-        const insertQuantity = document.createElement("h5");
+        const insertQuantity = document.createElement("h4");
         insertQuantity.textContent = qty;
 
         const insertPrice = document.createElement("caddieCardContentPrice");
