@@ -21,11 +21,8 @@ let caddie = {
             }
         });
         
-
-        /*
-        const testLocalStorageValue = JSON.parse(localStorage.panierTest);
-        console.log("testLocalStorageValue :", testLocalStorageValue);
-        */
+        const button = document.querySelector('.btnBuy');
+        button.addEventListener('click', caddie.validateInput);
     },
  
     showCaddieProduct : function(){
@@ -34,17 +31,12 @@ let caddie = {
         const caddiePrice = document.querySelector(".caddieContainerPrice");
         let totalPrice = 0;
         
-        
-        
         for (const [id, options] of Object.entries(localStorage)){
-            //console.log("id :", id);
-            //console.log("option :", options);
+            console.log("id :", id);
+            console.log("option :", options);
 
             const optionsObject = JSON.parse(options);
-            //console.log("optionsObject :", optionsObject);
 
-
-            
             /* Recuperer donnée corespondant à l'id via appel ajax (fetch) */
             fetch(`http://localhost:3000/api/cameras/${id}`) 
             .then(res => {
@@ -122,7 +114,76 @@ let caddie = {
         /* Insère l'item représentant un produit du panier dans le container qui contient tout les élements du panier */
         cardCaddie.appendChild(newCardCaddie);
     },
-                    
+    
+    validateInput : async function() {
+        console.log("validateForm validateInput");
+
+        const name = document.querySelector("#fisrtName");
+        const lastname = document.querySelector("#lastName");
+        const email = document.querySelector("#inputEmail4");
+        const adress = document.querySelector("#inputAddress");
+        const city = document.querySelector("#inputCity");
+        const errorMessage = document.querySelector('#errorMessage');
+        
+        const productIdToPost = Object.keys(localStorage);
+        const contactToPost = {};
+
+        if (typeof name.value === "string" && name.value !== "") {
+            contactToPost.firstName = name.value;
+        } else {
+            errorMessage.textContent ='Votre saisi du prénom est incorrect, veuillez la modifiez pour commander';
+        }
+
+        if (typeof lastname.value === "string" && lastname.value !== "") {
+            contactToPost.lastName = lastname.value;
+        } else {
+            errorMessage.textContent ='Votre saisi du nom est incorrect, veuillez la modifiez pour commander';
+        }
+
+        if (typeof email.value === "string" && email.value !== "") {
+            contactToPost.email = email.value;
+        } else {
+            errorMessage.textContent ='Votre saisi de l\'email est incorrect, veuillez la modifiez pour commander';
+        }
+
+        if (typeof adress.value === "string" && adress.value !== "") {
+            contactToPost.address = adress.value;
+        } else {
+            errorMessage.textContent ='Votre saisi de l\'adresse est incorrect, veuillez la modifiez pour commander';
+        }
+
+        if (typeof city.value === "string" && city.value !== "") {
+            contactToPost.city = city.value;
+        } else {
+            errorMessage.textContent ='Votre saisi de votre ville est incorrect, veuillez la modifiez pour commander';
+        }
+
+        const dataToPost = {
+            contact: contactToPost,
+            products: productIdToPost
+        };
+        console.log(dataToPost);
+
+        await fetch("http://localhost:3000/api/cameras/order", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToPost),
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(responseData => {
+                window.location = "validation.html";
+                localStorage.clear();
+                localStorage.setItem("dataCommand", JSON.stringify(responseData));
+            })
+            .catch(error => {
+                console.log("error :", error);
+            })
+    }
 };
 
 document.addEventListener('DOMContentLoaded', caddie.init);

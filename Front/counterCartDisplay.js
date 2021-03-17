@@ -7,6 +7,7 @@ let counterCartDisplay = {
         const counterCart = document.querySelector(".counterCaddie");
         const cartCounter = localStorage.length;
         counterCart.textContent = cartCounter;
-    }
+    },
+    
 }
 document.addEventListener('DOMContentLoaded', counterCartDisplay.init);

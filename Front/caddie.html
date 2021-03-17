@@ -79,23 +79,20 @@
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+                    <label for="inputName">Votre nom</label>
+                    <input type="text" class="form-control" placeholder="Nom" aria-label="First name" id="fisrtName">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Mot de passe</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <label for="inputPrename">Votre prénom</label>
+                    <input type="text" class="form-control" placeholder="Prénom" aria-label="Last name" id="lastName">
                 </div>
             </div>
-
+            
             <div class="form-group">
-                <label for="inputAddress">Addresse</label>
+                <label for="inputAddress">Adresse</label>
                 <input type="text" class="form-control" id="inputAddress" placeholder="Votre adresse">
             </div>
-            <div class="form-group">
-                <label for="inputAddress2">Suite adresse</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Appartement, étage, résidence">
-            </div>
+            
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Ville</label>
@@ -104,43 +101,23 @@
               
                  <div class="form-group col-md-2">
                     <label for="inputZip">Code Postal</label>
-                    <input type="number" class="form-control" id="inputZip">
+                    <input type="postal-code" class="form-control" id="inputZip" required minlength="5" pattern="[0-9]{5}">
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">Pays</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Selection...</option>
-                        <option value="Allemagne">Allemagne</option>
-                        <option value="Andorre">Andorre</option>
-                        <option value="Belgique">Belgique</option>
-                        <option value="Chypre">Chypre</option>
-                        <option value="Danemark">Danemark</option>
-                        <option value="Espagne">Espagne</option>
-                        <option value="Estonie">Estonie</option>
-                        <option value="France">France</option>
-                        <option value="Grèce">Grèce</option>
-                        <option value="Irlande">Irlande</option>
-                        <option value="Islande">Islande</option>
-                        <option value="Italie">Italie</option>
-                        <option value="Lettonie">Lettonie</option>
-                        <option value="Lituanie">Lituanie</option>
-                        <option value="Luxembourg">Luxembourg</option>
-                        <option value="Macedoine">Macédoine</option>
-                        <option value="Malte">Malte</option>
-                        <option value="Monaco">Monaco</option>
-                        <option value="Pays-Bas">Pays-Bas</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Roumanie">Roumanie</option>
-                        <option value="Royaume-Uni">Royaume-Uni</option>
-                        <option value="Sued">Suède</option>
-                        <option value="Suisse">Suisse</option>
-                        <option value="Turquie">Turquie</option>
-                        <option value="Ukraine">Ukraine</option>
-                    </select>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4">
+                    </div>
                 </div>
             </div>
+                
+            
         </form>
         <button type="submit" class="btn btn-primary btnBuy">Passer la commande</button>
+        <div id="errorMessage">
+            <p></p>
+        </div>
     </main>
     <!--####FIN MAIN#######-->
         

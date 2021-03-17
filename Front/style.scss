@@ -116,11 +116,17 @@ main {
 .footerContent {
     width: 100%;
     background: rgb(194, 194, 194);
+    
+    & > ul {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+    }
+    & > li {
+        list-style-type: none;
+    }
 }
-.footerContent > ul {
-    display: flex;
-    justify-content: space-around;
-}
+
 
 /*#######page detailProduct######*/
 
@@ -190,6 +196,7 @@ main {
     text-align: center;
 }
 .caddieContainerList {
+    margin-bottom: 2rem;
     display: flex;
     .caddieCard {
         display: flex;
@@ -256,4 +263,24 @@ main {
         }
     }
 }
+/*#######Form######*/
+#inputEmail4:invalid{
+    border-color: #900;
+    background-color: #FDD;
+}
+#inputPassword4:invalid{
+    border-color: #900;
+    background-color: #FDD;
+}
+#inputZip:invalid{
+    border-color: #900;
+    background-color: #FDD;
+}
+#inputState:invalid{
+    border-color: #900;
+    background-color: #FDD;
+}
+
+
+
 

@@ -51,8 +51,8 @@ let productDetail = {
                
             });
 
-        //Si je "click" sur button "ajouter au panier" viens modifier le texte(votre panier par nombre d'article commander), et l'article est ajouter dans la page "caddie"
-        var addCounterCart = document.querySelector(".addToCaddie");
+        //Si je "click" sur button "ajouter au panier" viens modifier 0 par nombre d'article commander, et l'article est ajouter dans la page "caddie"
+        let addCounterCart = document.querySelector(".addToCaddie");
         
         addCounterCart.addEventListener("click", function addToCart(e) {
             productDetail.setDataLocalStorage(id, detailProductOptions.value, detailProductQuantity.value);
@@ -61,14 +61,17 @@ let productDetail = {
     },
 
     setDataLocalStorage: function(id, productOption, qty) {
-        /*localStorage.setItem(`${id}`, `${productOption}`);*/
+        /*localStorage.setItem(`${id}`, `${productOption}`, `${qty}`);*/
         
         const localStorageValue = {
             productOption: productOption,
-            quantity : qty
+            quantity : qty,
+            
         };
         localStorage.setItem(id, JSON.stringify(localStorageValue));
-    }
+        console.log(localStorageValue.quantity)
+    },
+    
 };
 
 document.addEventListener('DOMContentLoaded', productDetail.init);

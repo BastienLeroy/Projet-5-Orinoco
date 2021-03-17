@@ -92,10 +92,13 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
   width: 100%;
   background: #c2c2c2;
 }
-
 .footerContent > ul {
   display: flex;
   justify-content: space-around;
+  list-style-type: none;
+}
+.footerContent > li {
+  list-style-type: none;
 }
 
 /*#######page detailProduct######*/
@@ -161,6 +164,7 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 }
 
 .caddieContainerList {
+  margin-bottom: 2rem;
   display: flex;
 }
 .caddieContainerList .caddieCard {
@@ -218,4 +222,25 @@ main .itemsContainer .itemCard .ItemCardContent .itemCardButton {
 .caddieContainerList .deleteItems .btn-outline-primary {
   border-radius: 13px;
   margin-left: 0.5rem;
+}
+
+/*#######Form######*/
+#inputEmail4:invalid {
+  border-color: #900;
+  background-color: #FDD;
+}
+
+#inputPassword4:invalid {
+  border-color: #900;
+  background-color: #FDD;
+}
+
+#inputZip:invalid {
+  border-color: #900;
+  background-color: #FDD;
+}
+
+#inputState:invalid {
+  border-color: #900;
+  background-color: #FDD;
 }/*# sourceMappingURL=style.css.map */

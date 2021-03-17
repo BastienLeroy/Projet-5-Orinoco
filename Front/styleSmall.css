@@ -21,10 +21,13 @@
   .itemCard .ItemCardContent {
     margin-bottom: 1rem;
   }
-  .itemCard .ItemCardImage {
-    width: 50% !important;
-  }
   .itemCard .ItemCardImage .ItemCardImageContent {
-    max-width: 375px;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
+
+  .footerContent > ul {
+    flex-direction: column !important;
   }
 }/*# sourceMappingURL=styleSmall.css.map */
