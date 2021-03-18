@@ -4,6 +4,7 @@ let counterCartDisplay = {
         counterCartDisplay.setCounterCartDisplay();
     },
     setCounterCartDisplay: function(){
+        //const dataCounter = JSON.parse(localStorage);
         const counterCart = document.querySelector(".counterCaddie");
         const cartCounter = localStorage.length;
         counterCart.textContent = cartCounter;

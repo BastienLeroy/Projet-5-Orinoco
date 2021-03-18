@@ -1,4 +1,6 @@
 let caddie = {
+
+    totalPrice: 0,
     
     init: function(){
         console.log("caddie.js : OK !");
@@ -56,12 +58,11 @@ let caddie = {
 
                 }
                 caddie.createItemCaddie(argumentCaddieItems);
-                totalPrice += (priceFormat*optionsObject.quantity);
+                caddie.totalPrice += (priceFormat*optionsObject.quantity);
                 //console.log(totalPrice);
-                caddiePrice.textContent = totalPrice +"€";
+                caddiePrice.textContent = caddie.totalPrice +"€";
             })
         }
-        
     },
     
 
@@ -176,9 +177,10 @@ let caddie = {
                 return response.json();
             })
             .then(responseData => {
-                window.location = "validation.html";
-                localStorage.clear();
+                console.log(responseData);
+                localStorage.setItem("totalPrice", caddie.totalPrice);
                 localStorage.setItem("dataCommand", JSON.stringify(responseData));
+                window.location = "validation.html";
             })
             .catch(error => {
                 console.log("error :", error);

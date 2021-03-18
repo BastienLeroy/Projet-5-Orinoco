@@ -12,10 +12,59 @@
 </head>
 
     <body>
-        <header></header>
+        <header>
+            <div class="headerContent row">
+                <a href="index.html">
+                    <div class="logo col-4">
+                        <img src="../Back/images/logo.png" alt="Logo orinico">
+                    </div>
+                </a>
+                <form class="form-inline my-8 my-lg-8">
+                    <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Rechercher</button>
+                  </form>
+                  <i class="bi bi-cart-fill"></i>
+                
+                <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                      <a class="navbar-branrd" href="index.html">Acceuil</a>
+                      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Appareil Photo <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Ours en peluche</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Meuble en bois</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+            </div>
+        
+        </header>
         <main> 
             <div class="container">
-                <p class="coucou"></p>
+                <div class="containerValidate">
+                    <div class="containerValidateContent">
+                        <div class="validateContentCongrat">
+                            <span class="orderID"></span>
+                        </div>
+                        <div class="validateContentInfo">
+                            <span class="infoID"></span><br>
+                            <span class="infoAdress"></span><br>
+                            <span class="infoMail"></span><br>
+                        </div>
+                        <div class="validateContentTotal">
+                            <span class="totalPrice"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer></footer>
