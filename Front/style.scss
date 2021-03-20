@@ -114,18 +114,26 @@ main {
 }
 
 .footerContent {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background: rgb(194, 194, 194);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px grey;
+
     
     & > ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        width: 100%;
         list-style-type: none;
     }
     & > li {
+        margin-left: 3rem;
         list-style-type: none;
     }
 }
+
 
 
 /*#######page detailProduct######*/
@@ -172,115 +180,148 @@ main {
 }
 
 /*#######page caddie######*/
-.rowInfo {
-    width: 98%;
-    display: flex;
-    justify-content: center;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-    background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-    background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-    opacity: 0.8;
-    text-align: center;    
-    color: rgba(0,0,0);
-    text-shadow: 3px 2px 6px rgba(255,255,255,);
+main {
+    margin: 0.5rem;
 
-    > p {
-        margin-left: 5.5rem;
+    #caddieContainer {
+        margin: 0.5rem;
     }
-    
-}
-.btnBuy {
-    margin-bottom: 1rem;
-    text-align: center;
-}
-.caddieContainerList {
-    margin-bottom: 2rem;
-    display: flex;
-    .caddieCard {
+    .rowInfo {
+        width: 100%;
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        margin-bottom: 1rem;
-    
-        .caddieCardContent {
-            display: flex;        
-            
-            .option {
-                width: 20%;
-            }
-            .caddieCardContentPrice {
-                width: 35%;
-                align-self: flex-end;
-            }
-            
-            & > h3 {
-                width: 25%;
-                margin-left: 1rem;
-            }
-            & > h4 {
-                margin-left: 2rem;
-                width: 21%;
-            }
-            & > h5 {
-                margin-left: 1rem;
-                margin-right: 3rem;
-                width: 25%;
-            }
-        }
-    
-        .caddieCardImage {
-            height: 250px;
-    
-            .caddieCardImageContent {
-                height: 200px;
-                width: 300px;
-                
-            }
-        
-        }
-    }
-    .caddieContainerListTotal {
-        border-radius: 10px;
-        align-self: flex-end;
-        width: 320px;
-        height: 150px;
-        opacity: 0.8;
+        justify-content: space-between;
+        margin : 0 0 1rem 0;
         background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
         background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
         background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        text-align: center;    
+        opacity: 0.8;
         color: rgba(0,0,0);
-        font-size: x-large ;
-        text-shadow: 3px 2px 3px rgba(255,255,255,);
-    }
-    .deleteItems {
-        align-self: flex-end;
-        .btn-outline-primary {
-            border-radius: 13px;
-            margin-left: 0.5rem;
+        text-shadow: 3px 2px 6px rgba(255,255,255,);
+    
+        .noWord {
+            min-width: 230px;
         }
+        p {
+            margin-right: 0.7rem;
+        }
+            
     }
-}
-/*#######Form######*/
-#inputEmail4:invalid{
-    border-color: #900;
-    background-color: #FDD;
-}
-#inputPassword4:invalid{
-    border-color: #900;
-    background-color: #FDD;
-}
-#inputZip:invalid{
-    border-color: #900;
-    background-color: #FDD;
-}
-#inputState:invalid{
-    border-color: #900;
-    background-color: #FDD;
+    .btnBuy {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .caddieContainerList {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+    
+        .caddieCard {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            background-color:#f8f9fa;
+            border-radius: 0 20px 0 20px;
+            box-shadow: 2px 2px 5px grey;
+        
+            .caddieCardContent {
+                display: flex;
+                margin-right: 0.5rem;        
+                
+                .option {
+                    width: 20%;
+                }
+                .caddieCardContentPrice {
+                    width: 35%;
+                    align-self: flex-end;
+                    
+                }
+                            
+                & > h3 {
+                    width: 25%;
+                    margin-left: 1rem;
+                }
+                & > h4 {
+                    margin-left: 2rem;
+                    width: 21%;
+                }
+                & > h5 {
+                    margin-left: 1rem;
+                    margin-right: 3rem;
+                    width: 25%;
+                }
+            }
+        
+            .caddieCardImage {
+                height: 250px;
+                
+        
+                .caddieCardImageContent {
+                    height: 200px;
+                    width: 300px;
+                    border-radius: 20px 0 20px 0; ;
+                    
+                }
+            
+            }
+        }
+        .caddieContainerListTotal {
+            border-radius: 10px;
+            align-self: flex-end;
+            width: 320px;
+            height: 150px;
+            opacity: 0.8;
+            background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            text-align: center;    
+            color: rgba(0,0,0);
+            font-size: x-large ;
+            text-shadow: 3px 2px 3px rgba(255,255,255,);
+        }
+        .deleteItems {
+            align-self: flex-end;
+            .btn-outline-primary {
+                border-radius: 13px;
+                margin-left: 0.5rem;
+            }
+        }
+        
+    }
+    /*#######Form######*/
+    #inputEmail4:invalid{
+        border-color: #900;
+        background-color: #FDD;
+        }
+    #inputPassword4:invalid{
+        border-color: #900;
+        background-color: #FDD;
+    }
+    #inputZip:invalid{
+        border-color: #900;
+        background-color: #FDD;
+    }
+    #inputState:invalid{
+        border-color: #900;
+        background-color: #FDD;
+    }
+    #errorMessage {
+        color: red;
+        font-size: x-large;
+    }
 }
 
+/*#######validation##########*/
+.logoValidate {
+    display: flex;
+    justify-content: center;
+    img {
+        width: 150px;
+    }
+}
+.containerValidateContent {
+    text-align: center;
+}
 
 
 

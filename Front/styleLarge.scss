@@ -18,4 +18,25 @@
             }
         }
     }
- }
+    /*######### CADDIE #########*/
+
+    .caddieCardContentPrice {
+        width: 35%;
+        align-self: flex-end;
+    }
+    
+    & > h3 {
+        min-width: 25% !important;
+        margin-left: 1rem;
+    }
+    & > h4 {
+        margin-left: 2rem;
+        width: 21%;
+    }
+    & > h5 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 25%;
+    }
+}
+ 

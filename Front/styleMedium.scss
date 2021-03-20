@@ -25,4 +25,45 @@
             }
         }
     }
+    .footerContent {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        & > ul {
+            flex-direction: column !important;
+            
+        }
+        .footerContentList {
+            margin-bottom: 1rem;
+        }
+        
+    }
+
+    /*#######page detailProduct######*/
+    .caddieCard {
+        flex-direction: column-reverse !important;
+
+    }
+    .productCard {
+        flex-direction: column !important;
+        .productCardImageContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .addToCaddie {
+            margin-bottom: 1rem;
+        }
+    }
+    /*######### CADDIE #########*/
+    #caddieContainer {
+        margin: 1rem !important;
+    }
+    .rowInfo {
+        .noWord {
+            display: none;
+        }
+    }
+
 }
+

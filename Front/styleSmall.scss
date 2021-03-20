@@ -1,42 +1,137 @@
-@media (max-width: 768px){
+@media (max-width: 767px){
     .headerContent {
         flex-direction: column !important;
+        display: flex;
+        justify-content: center;
+
+        .logo {
+            max-width: 100% !important;
+        }
 
         .linkLogo {
             display: flex;
             justify-content: center;
         }
         .form-inline {
-            width: 100%;
+            width: 86%;
             margin-left: 2rem;
+            display: flex;
+            justify-content: center;
         }
         .linkCaddie {
             align-self: center;
             
         }
     }
-    .itemCard {
-        width: 100% !important;
-        flex-direction: column;
-        
-        .ItemCardContent {
-            margin-bottom: 1rem;
-        }
-        .ItemCardImage {
-            //width: 50% !important;
+    .itemsContainer {
+        justify-content: center !important;
 
-            .ItemCardImageContent {
-                max-width: fit-content;
-                ;
+        .itemCard {
+            width: fit-content !important;
+            flex-direction: column;
+            
+            
+            .ItemCardContent {
+                margin-bottom: 1rem;
+                align-self: center;
+            }
+            .ItemCardImage {
+                //width: 50% !important;
+
+                .ItemCardImageContent {
+                    height: 210px !important;
+                    max-width: 310px !important;
+                }
+                    
+                
             }
         }
     }
     .footerContent {
-       
+        display: flex;
+        justify-content: center;
+        text-align: center;
         & > ul {
             flex-direction: column !important;
+            padding: 0;
+        }
+        .footerContentList {
+            margin-bottom: 1rem;
         }
         
     }
+
+    /*#######page detailProduct######*/
+    .caddieCard {
+        flex-direction: column-reverse !important;
+
+    }
+    .productCard {
+        flex-direction: column !important;
+        .productCardImageContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .addToCaddie {
+            margin-bottom: 1rem;
+        }
+    }
+    /*######### CADDIE #########*/
+    main {
+        margin: 0.5rem;
+        .caddieContainerList {
+            .caddieCard {
+                text-align: center;
         
+                .caddieCardContent {
+                    flex-direction: column;
+                    text-align: end;
+                    width: 100%;
+                    
+        
+                    .option {
+                        width: 100% !important;            
+                    }
+    
+                    .caddiecardcontentprice {
+                        margin-right: 1rem;
+                        width: 100% !important;    
+                    }
+                                
+                    & > h3 {
+                        width: 98% !important;
+                        text-align: center;
+                    }
+                    & > h4 {
+                        width: 98% !important; 
+                        text-align: center;   
+                        margin: 0;        }
+                    & > h5 {
+                        width: 85% !important; 
+                        align-self: center; 
+                        text-align: justify;      }
+                }
+            }
+            .caddieContainerListTotal {
+                align-self: center;
+            }
+        }
+        
+        
+        .rowInfo {
+            flex-direction: column-reverse;
+            height: 10px;
+            width: 100%;
+            p {
+                display: none;
+            }
+        }
+        form {
+            margin: 1rem;
+        }
+    }
+    
+
+      
 }

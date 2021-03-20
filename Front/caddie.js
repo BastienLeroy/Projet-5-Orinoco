@@ -133,30 +133,35 @@ let caddie = {
             contactToPost.firstName = name.value;
         } else {
             errorMessage.textContent ='Votre saisi du prénom est incorrect, veuillez la modifiez pour commander';
+            validateInput.preventDefault();
         }
 
         if (typeof lastname.value === "string" && lastname.value !== "") {
             contactToPost.lastName = lastname.value;
         } else {
             errorMessage.textContent ='Votre saisi du nom est incorrect, veuillez la modifiez pour commander';
+            validateInput.preventDefault();
         }
 
         if (typeof email.value === "string" && email.value !== "") {
             contactToPost.email = email.value;
         } else {
             errorMessage.textContent ='Votre saisi de l\'email est incorrect, veuillez la modifiez pour commander';
+            validateInput.preventDefault();
         }
 
         if (typeof adress.value === "string" && adress.value !== "") {
             contactToPost.address = adress.value;
         } else {
             errorMessage.textContent ='Votre saisi de l\'adresse est incorrect, veuillez la modifiez pour commander';
+            validateInput.preventDefault();
         }
 
         if (typeof city.value === "string" && city.value !== "") {
             contactToPost.city = city.value;
         } else {
-            errorMessage.textContent ='Votre saisi de votre ville est incorrect, veuillez la modifiez pour commander';
+            errorMessage.textContent ='Votre saisi de ville est incorrect, veuillez la modifiez pour commander';
+            validateInput.preventDefault();
         }
 
         const dataToPost = {

@@ -23,4 +23,41 @@
   .itemCard .ItemCardImage .ItemCardImageContent {
     max-width: 375px;
   }
+
+  .footerContent {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .footerContent > ul {
+    flex-direction: column !important;
+  }
+  .footerContent .footerContentList {
+    margin-bottom: 1rem;
+  }
+
+  /*#######page detailProduct######*/
+  .caddieCard {
+    flex-direction: column-reverse !important;
+  }
+
+  .productCard {
+    flex-direction: column !important;
+  }
+  .productCard .productCardImageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .productCard .addToCaddie {
+    margin-bottom: 1rem;
+  }
+
+  /*######### CADDIE #########*/
+  #caddieContainer {
+    margin: 1rem !important;
+  }
+
+  .rowInfo .noWord {
+    display: none;
+  }
 }/*# sourceMappingURL=styleMedium.css.map */

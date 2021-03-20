@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleLarge.css">
+    <link rel="stylesheet" href="styleMedium.css">
+    <link rel="stylesheet" href="styleSmall.css">
     <link rel="icon" type="image/png" href="../Back/images/logoSmall.png" />
     
     <title>Produits Orinoco</title>
@@ -59,12 +62,13 @@
     <main>
         
         <div id="caddieContainer row">
-            <div class="rowInfo row">
-                <p>Nom</p>
-                <p>Description</p>
-                <p>Option Selectionnée</p>
-                <p>Quantité</p>
-                <p>Prix</p>
+            <div class="rowInfo">
+                <span class="noWord"></span>
+                <p class="wordName">Nom</p>
+                <p class="wordDescrip">Description</p>
+                <p class="wordOpt">Option Selectionnée</p>
+                <p class="wordQty">Quantité</p>
+                <p class="wordPrice">Prix</p>
             </div>
             <div class="caddieContainerList">
                 <div class="caddieContainerListItems"></div>
@@ -94,7 +98,7 @@
             </div>
             
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="inputCity">Ville</label>
                     <input type="text" class="form-control" id="inputCity">
                 </div>
@@ -104,8 +108,8 @@
                     <input type="postal-code" class="form-control" id="inputZip" required minlength="5" pattern="[0-9]{5}">
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
+                    <div class="form-group">
                         <label for="inputEmail4">Email</label>
                         <input type="email" class="form-control" id="inputEmail4">
                     </div>
