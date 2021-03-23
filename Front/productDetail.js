@@ -1,16 +1,15 @@
 let productDetail = {
-
+    /* Fonction d'initialisation */
     init: function(){
-        console.log("productDetail.js : OK !");
-        productDetail.getProductId();
+        const productId = productDetail.getProductId();
+        productDetail.fetchData(productId);
     },
 
     getProductId: function() {
         const queryString = window.location.search; // Récupère tout ce qui se trouve à partir du caractère "?" dans une URL (www.monurl.com/produits?id=fd51fd1 donnera "?id=fd51fd1").
         const urlParams = new URLSearchParams(queryString); // Isole les paramètres et leur valeurs (exemple : www.monurl.com/produits?id=fd51fd1 donnera {"id": "fd51fd1"}.
         const productId = urlParams.get('id'); // Récupère la valeur du paramètre "id".
-
-        productDetail.fetchData(productId);
+        return productId;
     },
 
     fetchData: function(id) { //Selection de chaque div qui sera rempli par la suite
@@ -27,7 +26,6 @@ let productDetail = {
                 return res.json();
             })
             .then(response => {
-                console.log("productDetail.js fetch response", response);
                 const price = response.price.toString(10);
                 const priceString = price.slice(0,(price.length-2));
                 
@@ -39,11 +37,9 @@ let productDetail = {
                     optionItem.value = optionsList[count];
                     optionItem.textContent = optionsList[count];
                     detailProductOptions.appendChild(optionItem);
-
                 }
                 
                 //permet de "remplir" les querySelectors (suite à la fonction fetchData)
-                console.log("detailProductPrice :", detailProductTitle);
                 detailProductImage.src=response.imageUrl;
                 detailProductTitle.textContent=response.name;
                 detailProductDescription.textContent=response.description;
@@ -55,23 +51,37 @@ let productDetail = {
         let addCounterCart = document.querySelector(".addToCaddie");
         
         addCounterCart.addEventListener("click", function addToCart(e) {
-            productDetail.setDataLocalStorage(id, detailProductOptions.value, detailProductQuantity.value);
+            
+            /* 
+                Si la clé "cart" du "localStorage" existe alors on récupère la valeur de la clé "cart" on y ajoute le nouveau produit 
+                et on ré attribut ça dans la clé "cart" du local storage via la fonction "setDataLocalStorage".
+            */
+            if (localStorage.cart) {
+                const actualCart  = JSON.parse(localStorage.cart);
+                actualCart[id] = {
+                    "productOption": detailProductOptions.value,
+                    "quantity" : detailProductQuantity.value
+                }
+
+                productDetail.setDataLocalStorage(actualCart);
+            } else {
+                const localStorageValue = {
+                    [id] : {
+                        "productOption": detailProductOptions.value,
+                        "quantity" : detailProductQuantity.value
+                    }
+                };
+    
+                productDetail.setDataLocalStorage(localStorageValue);
+            }
             counterCartDisplay.setCounterCartDisplay();
         });
     },
 
-    setDataLocalStorage: function(id, productOption, qty) {
-        /*localStorage.setItem(`${id}`, `${productOption}`, `${qty}`);*/
-        
-        const localStorageValue = {
-            productOption: productOption,
-            quantity : qty,
-            
-        };
-        localStorage.setItem(id, JSON.stringify(localStorageValue));
-        console.log(localStorageValue.quantity)
-    },
-    
+    setDataLocalStorage: function(localStorageValue) { //permet de récupérer les données option et quantité par rapport à l'ID
+
+        localStorage.setItem("cart", JSON.stringify(localStorageValue));
+    }
 };
 
 document.addEventListener('DOMContentLoaded', productDetail.init);

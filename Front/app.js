@@ -1,9 +1,8 @@
 //Méthodes contenu dans un objet, initialiser une fois le DOM construit.
-let app = {  
+let app = {
 
-    /* Fonction permettant */
+    /* Fonction d'initialisation */
     init: function() { 
-        console.log("app.js : OK !"); 
         app.requestProductList();
     },
     
@@ -11,24 +10,22 @@ let app = {
     requestProductList: function() {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
-            console.log(this.status);
+
             if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                 try {
+                    
                     var response = JSON.parse(this.response);
-                    console.log("response :", response);
-
-                    for(let counter = 0; counter < response.length; counter++) {
-                        const price = response[counter].price.toString(10);
+                    response.forEach(res => {
+                        const price = res.price.toString(10);
                         const argumentCreateItems = {
-                            id: response[counter]._id,
-                            urlImg: response[counter].imageUrl,
-                            title: response[counter].name,
+                            id: res._id,
+                            urlImg: res.imageUrl,
+                            title: res.name,
                             price: price.slice(0,(price.length-2))
-                        }
-
+                        };
                         app.createItems(argumentCreateItems);
-                    }
-                } 
+                    })
+                }
                 catch (error) {
                     console.log(error);
                 }
@@ -78,7 +75,3 @@ let app = {
 };
 
 document.addEventListener('DOMContentLoaded', app.init);
-
-
-
-

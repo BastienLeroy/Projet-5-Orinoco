@@ -3,18 +3,15 @@ let caddie = {
     totalPrice: 0,
     
     init: function(){
-        console.log("caddie.js : OK !");
         caddie.showCaddieProduct();
 
         // Fonction du boutton vider le panier
-        const deleteItem = document.querySelector(".deleteItems");
-        deleteItem.addEventListener('click', function(){
+            const deleteItem = document.querySelector(".deleteItems");
+            deleteItem.addEventListener('click', function(){
             localStorage.clear();
-            console.log("click");
-            
+                        
             const caddieContainerList = document.querySelector(".caddieContainerListItems");
-            console.log(caddieContainerList.firstChild);
-
+            
             const caddieTotalPrice = document.querySelector(".caddieContainerPrice");
             caddieTotalPrice.textContent = '0';
 
@@ -28,44 +25,39 @@ let caddie = {
     },
  
     showCaddieProduct : function(){
-        //console.log("show");
-        //console.log("localStorage :", localStorage);
         const caddiePrice = document.querySelector(".caddieContainerPrice");
-        let totalPrice = 0;
+
+        if (localStorage.cart) {
+            const localStorageCart = JSON.parse(localStorage.cart);
         
-        for (const [id, options] of Object.entries(localStorage)){
-            console.log("id :", id);
-            console.log("option :", options);
+            for (const [id, detail] of Object.entries(localStorageCart)){
 
-            const optionsObject = JSON.parse(options);
+                /* Recuperer donnée corespondant à l'id via appel ajax (fetch) */
+                fetch(`http://localhost:3000/api/cameras/${id}`)
+                .then(res => {
+                    return res.json();
+                })
+                .then(response => {
+                    const price = response.price.toString(10);// Permet de modifier le number en string
+                    const priceFormat = price.slice(0,(price.length-2));// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
 
-            /* Recuperer donnée corespondant à l'id via appel ajax (fetch) */
-            fetch(`http://localhost:3000/api/cameras/${id}`) 
-            .then(res => {
-                return res.json();
-            })
-            .then(response => {
-                const price = response.price.toString(10);// Permet de modifier le number en string
-                const priceFormat = price.slice(0,(price.length-2));// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
+                    const argumentCaddieItems = {
+                        name : response.name,
+                        description : response.description,
+                        urlImage : response.imageUrl,
+                        option : detail.productOption,
+                        qty : detail.quantity,
+                        price : priceFormat// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
 
-                const argumentCaddieItems = {
-                    name : response.name,
-                    description : response.description,
-                    urlImage : response.imageUrl,
-                    option : optionsObject.productOption,
-                    qty : optionsObject.quantity,
-                    price : priceFormat// Permet de recuperer la chaine de caractere de "l'element" 0  jusqu'au dernier -2
-
-                }
-                caddie.createItemCaddie(argumentCaddieItems);
-                caddie.totalPrice += (priceFormat*optionsObject.quantity);
-                //console.log(totalPrice);
-                caddiePrice.textContent = caddie.totalPrice +"€";
-            })
+                    }
+                    caddie.createItemCaddie(argumentCaddieItems);
+                    caddie.totalPrice += (priceFormat*detail.quantity);
+                    caddiePrice.textContent = caddie.totalPrice +"€";
+                })
+            }
         }
     },
     
-
     createItemCaddie: function({ name, description, urlImage, option, qty, price }) {
         // Appellation dynamique pour les contenant qui récupère les données de "response"
         const cardCaddie = document.querySelector(".caddieContainerListItems");
@@ -116,9 +108,8 @@ let caddie = {
         cardCaddie.appendChild(newCardCaddie);
     },
     
-    validateInput : async function() {
-        console.log("validateForm validateInput");
-
+    validateInput : function() {
+        
         const name = document.querySelector("#fisrtName");
         const lastname = document.querySelector("#lastName");
         const email = document.querySelector("#inputEmail4");
@@ -126,7 +117,8 @@ let caddie = {
         const city = document.querySelector("#inputCity");
         const errorMessage = document.querySelector('#errorMessage');
         
-        const productIdToPost = Object.keys(localStorage);
+        parsedCart = JSON.parse(localStorage.cart);
+        const productIdToPost = Object.keys(parsedCart);
         const contactToPost = {};
 
         if (typeof name.value === "string" && name.value !== "") {
@@ -170,7 +162,7 @@ let caddie = {
         };
         console.log(dataToPost);
 
-        await fetch("http://localhost:3000/api/cameras/order", {
+        fetch("http://localhost:3000/api/cameras/order", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -182,7 +174,6 @@ let caddie = {
                 return response.json();
             })
             .then(responseData => {
-                console.log(responseData);
                 localStorage.setItem("totalPrice", caddie.totalPrice);
                 localStorage.setItem("dataCommand", JSON.stringify(responseData));
                 window.location = "validation.html";

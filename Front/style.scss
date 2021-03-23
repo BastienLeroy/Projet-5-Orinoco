@@ -29,9 +29,9 @@ header {
             height: 50px;
             width: 50px;
             font-size: 2rem;
-            background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-            background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-            background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: linear-gradient(135deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+            background: -moz-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+            background: -webkit-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
             opacity: 0.7;
             border-radius: 50px;
             text-align: center;
@@ -68,10 +68,9 @@ main {
         .itemCard {
             width: 45%;
             display: flex;
-            border: 2px outset rgba(183,100,250,0.94);
             border-radius: 0px 13px 0px 13px;
             -webkit-box-shadow: 10px 14px 19px 8px rgba(0,0,0,0.51); 
-            box-shadow: 10px 14px 19px 8px rgba(0,0,0,0.51);
+            box-shadow: 1px 1px 10px 1px  rgba(0,0,0,0.51);
             text-align: center;
             margin: 2rem;
 
@@ -191,9 +190,9 @@ main {
         display: flex;
         justify-content: space-between;
         margin : 0 0 1rem 0;
-        background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-        background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+        background: linear-gradient(135deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+        background: -moz-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+        background: -webkit-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
         opacity: 0.8;
         color: rgba(0,0,0);
         text-shadow: 3px 2px 6px rgba(255,255,255,);
@@ -269,11 +268,11 @@ main {
             border-radius: 10px;
             align-self: flex-end;
             width: 320px;
-            height: 150px;
+            height: 100px;
             opacity: 0.8;
-            background: linear-gradient(135deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-            background: -moz-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
-            background: -webkit-linear-gradient(-45deg, #df9c59 0%, #922864 50%, #5C00C5 100%);
+            background: linear-gradient(135deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+            background: -moz-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
+            background: -webkit-linear-gradient(-45deg, #d65000 0%, #a95183 50%, #803bd0 100%);
             text-align: center;    
             color: rgba(0,0,0);
             font-size: x-large ;
@@ -319,9 +318,14 @@ main {
         width: 150px;
     }
 }
-.containerValidateContent {
-    text-align: center;
+.containerValidate {
+    margin : 5rem 0 5rem 0;
+    .containerValidateContent {
+        text-align: center;
+        margin-top: 5rem;
+    }
 }
+
 
 
 
