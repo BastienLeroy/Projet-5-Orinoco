@@ -114,14 +114,14 @@ let caddie = {
         if (typeof name.value === "string" && name.value !== "") {
             contactToPost.firstName = name.value;
         } else {
-            errorMessage.textContent ='Votre saisi du prénom est incorrect, veuillez la modifiez pour commander';
+            errorMessage.textContent ='Votre saisi du nom est incorrect, veuillez la modifiez pour commander';
             validateInput.preventDefault();
         }
 
         if (typeof lastname.value === "string" && lastname.value !== "") {
             contactToPost.lastName = lastname.value;
         } else {
-            errorMessage.textContent ='Votre saisi du nom est incorrect, veuillez la modifiez pour commander';
+            errorMessage.textContent ='Votre saisi du prénom est incorrect, veuillez la modifiez pour commander';
             validateInput.preventDefault();
         }
 
