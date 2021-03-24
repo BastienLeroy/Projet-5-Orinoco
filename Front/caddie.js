@@ -3,34 +3,24 @@ let caddie = {
     totalPrice: 0,
     
     init: function(){
-        caddie.showCaddieProduct();
+        const testcart = caddie.showCaddieProduct();
+        console.log("testcart", testcart.length);
 
         // Fonction du boutton vider le panier
-            const deleteItem = document.querySelector(".deleteItems");
-            deleteItem.addEventListener('click', function(){
-            localStorage.clear();
-                        
-            const caddieContainerList = document.querySelector(".caddieContainerListItems");
-            
-            const caddieTotalPrice = document.querySelector(".caddieContainerPrice");
-            caddieTotalPrice.textContent = '0';
-
-            while (caddieContainerList.firstChild) {
-                caddieContainerList.removeChild(caddieContainerList.firstChild)
-            }
-        });
+        const deleteItem = document.querySelector(".deleteItems");
+        deleteItem.addEventListener('click', caddie.clearCart);
         
         const button = document.querySelector('.btnBuy');
         button.addEventListener('click', caddie.validateInput);
     },
  
-    showCaddieProduct : function(){
+    showCaddieProduct : async function(){
         const caddiePrice = document.querySelector(".caddieContainerPrice");
 
         if (localStorage.cart) {
             const localStorageCart = JSON.parse(localStorage.cart);
         
-            for (const [id, detail] of Object.entries(localStorageCart)){
+            for await (const [id, detail] of Object.entries(localStorageCart)){
 
                 /* Recuperer donnée corespondant à l'id via appel ajax (fetch) */
                 fetch(`http://localhost:3000/api/cameras/${id}`)
@@ -54,7 +44,7 @@ let caddie = {
                     caddie.totalPrice += (priceFormat*detail.quantity);
                     caddiePrice.textContent = caddie.totalPrice +"€";
                 })
-            }
+            };
         }
     },
     
@@ -181,6 +171,17 @@ let caddie = {
             .catch(error => {
                 console.log("error :", error);
             })
+    },
+
+    clearCart: function() {
+        localStorage.clear();               
+        const caddieContainerList = document.querySelector(".caddieContainerListItems");
+        const caddieTotalPrice = document.querySelector(".caddieContainerPrice");
+        caddieTotalPrice.textContent = '0 €, vous avez videz votre caddie !';
+
+        while (caddieContainerList.firstChild) {
+            caddieContainerList.removeChild(caddieContainerList.firstChild)
+        }
     }
 };
 

@@ -44,13 +44,12 @@ let productDetail = {
                 detailProductTitle.textContent=response.name;
                 detailProductDescription.textContent=response.description;
                 detailProductPrice.textContent=priceString + "€";
-               
             });
 
-        //Si je "click" sur button "ajouter au panier" viens modifier 0 par nombre d'article commander, et l'article est ajouter dans la page "caddie"
-        let addCounterCart = document.querySelector(".addToCaddie");
-        
-        addCounterCart.addEventListener("click", function addToCart(e) {
+            //Si je "click" sur button "ajouter au panier" viens modifier 0 par nombre d'article commander, et l'article est ajouter dans la page "caddie"
+            let addCounterCart = document.querySelector(".addToCaddie");
+            
+            addCounterCart.addEventListener("click", function addToCart(e) {
             
             /* 
                 Si la clé "cart" du "localStorage" existe alors on récupère la valeur de la clé "cart" on y ajoute le nouveau produit 
